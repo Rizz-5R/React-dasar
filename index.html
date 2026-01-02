@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Studi Kasus Dalam React Js</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+</head>
+<body>
+
+    <!-- CONTOH 1 Vanila JS -->
+    <div class="counter-apps" style="text-align: center; margin-top: 70px;">
+        <button id="btn-like" style="font-family: sans-serif; font-size: large;">Like (0) </button>
+    </div>
+
+    <script>
+        // Merubah tampilan tombol Like ketika di klik
+        // 1. Inisialisasi variabel dengan nilai awal 0
+        let likeCount = 0;
+
+        // 2. Tangkap elemen tombol berdasarkan ID
+        const btnLike = document.getElementById('btn-like');
+        btnLike.addEventListener('click', function() {   //buat fungsi untuk menjalankan event klik
+            likeCount = likeCount + 1;                   //data berubah                                
+            btnLike.innerText = `Like (${likeCount})`;   //render ulang manual & tampilkan data terbaru
+        });
+    </script>
+
+    <!-- CONTOH 2 -->
+
+<!-- Menggunakan Vanila Javascript 
+ <div id="counter-app" style="text-align: center; margin-top: 50px;">
+  <h1 id="display-nilai">Angka Saat Ini: 0</h1>
+  
+  <button id="btn-tambah"> + Tambah </button>
+  <button id="btn-kurang"> - Kurang </button>
+  <button id="btn-reset"> Reset </button>
+</div>
+-->
+
+<!-- 
+<script>
+  // Bagian 2: Logika (Komponen Logic)
+  
+  // 1. Inisialisasi variabel (Data)
+  let skor = 0;
+
+  // 2. Ambil elemen HTML berdasarkan ID (DOM Selection)
+  const displayNilai = document.getElementById('display-nilai');
+  const btnTambah = document.getElementById('btn-tambah');
+  const btnKurang = document.getElementById('btn-kurang');
+  const btnReset = document.getElementById('btn-reset');
+
+  // 3. Fungsi untuk memperbarui tampilan di layar
+  function updateTampilan() {
+    displayNilai.innerText = `Angka Saat Ini: ${skor}`;
+  }
+
+  // 4. Event Listener (Menangkap klik tombol)
+  btnTambah.addEventListener('click', function() {
+    skor = skor + 1; // Ubah data
+    updateTampilan(); // Render ulang manual
+  });
+
+  btnKurang.addEventListener('click', function() {
+    skor = skor - 1; // Ubah data
+    updateTampilan(); // Render ulang manual
+  });
+
+  btnReset.addEventListener('click', function() {
+    skor = 0;        // Ubah data
+    updateTampilan(); // Render ulang manual
+  });
+</script>
+ -->
+
+    <!--CONTOH 3 React -->
+
+    <!-- Menggunakan React dengan 2 komponen -->
+
+    <!-- <div id="root"></div> -->
+    
+
+<!-- 
+    <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        const { useState } = React;
+
+// Komponen Child: Bertugas menampilkan data dan tombol
+function DisplayCounter({ nilai, tambah, kurang, reset }) {
+  return (
+    <div style={{ textAlign: 'center', marginTop: '50px' }}>
+      <h1>Angka Saat Ini: {nilai}</h1>
+      <button onClick={tambah}> + Tambah </button>
+      <button onClick={kurang}> - Kurang </button>
+      <button onClick={reset}> Reset </button>
+    </div>
+  );
+}
+
+// Komponen Parent (Utama)
+function App() {
+  // 1. Inisialisasi State
+  const [skor, setSkor] = useState(0);
+
+  // 2. Fungsi Logika
+  const handleTambah = () => setSkor(skor + 1);
+  const handleKurang = () => setSkor(skor - 1);
+  const handleReset = () => setSkor(0);
+
+  return (
+    <div>
+      {/* 3. Memanggil Komponen Child sambil mengirimkan Data & Fungsi */}
+      <DisplayCounter 
+        nilai={skor} 
+        tambah={handleTambah} 
+        kurang={handleKurang} 
+        reset={handleReset} 
+      />
+    </div>
+  );
+}
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
+
+    </script> 
+     -->
+    
+</body>
+</html>
